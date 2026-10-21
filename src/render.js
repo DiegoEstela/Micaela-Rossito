@@ -1,4 +1,4 @@
-import { site, hero, marquee, approach, services, method, experience, about, contact, footer } from './content.js';
+import { site, hero, approach, services, method, experience, about, contact, footer } from './content.js';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -59,13 +59,6 @@ export function render() {
           <a class="btn primary" href="${hero.primary.href}" data-magnetic>${esc(hero.primary.label)} ${arrow('↘')}</a>
           <a class="btn secondary" href="${hero.secondary.href}" data-magnetic>${esc(hero.secondary.label)}</a>
         </div>
-        <div class="hero-foot reveal-hero">
-          <div class="badge">
-            <span class="badge-av"><b>MR</b>${photo(hero.badge.photo, hero.badge.name)}</span>
-            <span><strong>${esc(hero.badge.name)}</strong><small>${esc(hero.badge.role)}</small></span>
-          </div>
-          <div class="micro">${esc(hero.micro)}</div>
-        </div>
       </div>
       <div class="visual reveal-hero" id="visual">
         <div class="visual-label">${esc(hero.visualLabel)}</div>
@@ -84,9 +77,6 @@ export function render() {
     </div>
     <div class="scroll-hint reveal-hero"><span></span>Scroll</div>
   </section>`;
-
-  const track = [...marquee, ...marquee].map((t) => `<span>${esc(t)}<i>✦</i></span>`).join('');
-  const marqueeSec = `<div class="marquee" aria-hidden="true"><div class="marquee-track">${track}${track}</div></div>`;
 
   const approachSec = `
   <section class="section" id="enfoque"><div class="wrap">
@@ -215,7 +205,6 @@ export function render() {
       </div>
       <div class="contact-actions reveal">
         <a class="btn primary big" href="${mailto}" data-magnetic>${esc(contact.cta)} ${arrow()}</a>
-        <span class="mail">${esc(site.email)}</span>
         ${social ? `<div class="social">${social}</div>` : ''}
       </div>
     </div>
@@ -233,7 +222,7 @@ export function render() {
     <div class="cursor-ring" id="cursor-ring"><i></i></div><div class="cursor-dot" id="cursor-dot"><i></i></div>
     <div class="grain"></div>
     ${nav}
-    <main>${heroSec}${marqueeSec}${approachSec}${servicesSec}${methodSec}${experienceSec}${aboutSec}${contactSec}</main>
+    <main>${heroSec}${approachSec}${servicesSec}${methodSec}${experienceSec}${aboutSec}${contactSec}</main>
     ${footerSec}`;
 
   // Logos faltantes: mostrar el nombre en texto en lugar de la imagen rota.

@@ -38,8 +38,6 @@ export const hero = {
   text: 'Estrategia, comunicación, adquisición y conversión en un mismo sistema. Te ayudo a ordenar las piezas, detectar oportunidades y construir un plan de marketing alineado con los objetivos de tu negocio.',
   primary: { label: 'Conocer cómo puedo ayudarte', href: '#servicios' },
   secondary: { label: 'Ver mi experiencia', href: '#experiencia' },
-  micro: 'Estrategia primero. Implementación según tus necesidades.',
-  badge: { photo: '/images/micaela.jpg', name: 'Micaela Rossito', role: 'Lic. en Relaciones Públicas e Institucionales' },
   visualLabel: 'Un sistema, no acciones aisladas',
   system: [
     { n: '01', name: 'Estrategia', tag: 'Enfocar' },
@@ -48,16 +46,6 @@ export const hero = {
     { n: '04', name: 'Conversión y mejora', tag: 'Optimizar' },
   ],
 };
-
-export const marquee = [
-  'Estrategia de contenidos',
-  'Generación de demanda',
-  'Producción audiovisual',
-  'Coordinación de proyectos',
-  'Email marketing',
-  'Automatizaciones',
-  'Campañas integradas',
-];
 
 export const approach = {
   label: 'Mi enfoque',
