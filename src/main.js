@@ -61,23 +61,6 @@ ScrollTrigger.create({
 });
 gsap.to('#progress', { scaleX: 1, ease: 'none', scrollTrigger: { scrub: 0.2, start: 0, end: 'max' } });
 
-/* ---------- Cursor personalizado ---------- */
-if (finePointer && !reduced) {
-  document.body.classList.add('has-cursor');
-  const cur = $('#cursor');
-  const x = gsap.quickTo(cur, 'x', { duration: 0.35, ease: 'power3' });
-  const y = gsap.quickTo(cur, 'y', { duration: 0.35, ease: 'power3' });
-  window.addEventListener('pointermove', (e) => {
-    x(e.clientX);
-    y(e.clientY);
-    cur.classList.add('on');
-  });
-  document.addEventListener('pointerleave', () => cur.classList.remove('on'));
-  document.addEventListener('pointerover', (e) => {
-    cur.classList.toggle('hover', !!e.target.closest('a, button, [data-tilt]'));
-  });
-}
-
 /* ---------- Botones magnéticos ---------- */
 if (finePointer && !reduced) {
   $$('[data-magnetic]').forEach((el) => {
@@ -206,13 +189,14 @@ function sectionAnimations() {
     });
   });
 
-  // Metodología: la línea se completa a medida que se scrollea.
+  // Metodología: la línea se completa a medida que se scrollea (horizontal en desktop, vertical en mobile).
   const steps = $('#steps');
-  const mobile = window.matchMedia('(max-width: 800px)').matches;
-  gsap.to('#steps-fill', {
-    [mobile ? 'scaleY' : 'scaleX']: 1,
-    ease: 'none',
-    scrollTrigger: { trigger: steps, start: 'top 70%', end: 'bottom 70%', scrub: 0.4 },
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 901px)', () => {
+    gsap.to('#steps-fill', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: steps, start: 'top 70%', end: 'bottom 70%', scrub: 0.4 } });
+  });
+  mm.add('(max-width: 900px)', () => {
+    gsap.to('#steps-fill', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: steps, start: 'top 70%', end: 'bottom 70%', scrub: 0.4 } });
   });
   $$('.step', steps).forEach((s) =>
     ScrollTrigger.create({ trigger: s, start: 'top 70%', onEnter: () => s.classList.add('on'), onLeaveBack: () => s.classList.remove('on') })
