@@ -61,6 +61,30 @@ ScrollTrigger.create({
 });
 gsap.to('#progress', { scaleX: 1, ease: 'none', scrollTrigger: { scrub: 0.2, start: 0, end: 'max' } });
 
+/* ---------- Cursor personalizado: punto + anillo con inercia ---------- */
+if (finePointer && !reduced) {
+  const dot = $('#cursor-dot');
+  const ring = $('#cursor-ring');
+  const dx = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power3' });
+  const dy = gsap.quickTo(dot, 'y', { duration: 0.12, ease: 'power3' });
+  const rx = gsap.quickTo(ring, 'x', { duration: 0.55, ease: 'power3' });
+  const ry = gsap.quickTo(ring, 'y', { duration: 0.55, ease: 'power3' });
+  const state = (el) => (el?.closest('a, button') ? 'link' : el?.closest('[data-tilt], .spot') ? 'card' : '');
+  window.addEventListener('pointermove', (e) => {
+    if (!document.body.classList.contains('has-cursor')) {
+      gsap.set([dot, ring], { x: e.clientX, y: e.clientY });
+      document.body.classList.add('has-cursor');
+    }
+    dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY);
+  });
+  document.addEventListener('pointerover', (e) => {
+    document.body.dataset.cursor = state(e.target);
+  });
+  document.addEventListener('pointerdown', () => document.body.classList.add('cursor-down'));
+  window.addEventListener('pointerup', () => document.body.classList.remove('cursor-down'));
+  document.documentElement.addEventListener('pointerleave', () => document.body.classList.remove('has-cursor'));
+}
+
 /* ---------- Botones magnéticos ---------- */
 if (finePointer && !reduced) {
   $$('[data-magnetic]').forEach((el) => {

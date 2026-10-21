@@ -230,6 +230,7 @@ export function render() {
   document.getElementById('app').innerHTML = `
     <div class="loader" id="loader"><div class="loader-inner"><b>M<span>.</span>R</b><div class="loader-bar"><i id="loader-bar"></i></div><small id="loader-count">0</small></div></div>
     <div class="progress"><i id="progress"></i></div>
+    <div class="cursor-ring" id="cursor-ring"><i></i></div><div class="cursor-dot" id="cursor-dot"><i></i></div>
     <div class="grain"></div>
     ${nav}
     <main>${heroSec}${marqueeSec}${approachSec}${servicesSec}${methodSec}${experienceSec}${aboutSec}${contactSec}</main>

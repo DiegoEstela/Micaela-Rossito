@@ -56,6 +56,24 @@ img { max-width: 100%; display: block; }
 .loader-bar i { display: block; height: 100%; background: var(--blue); transform: scaleX(0); transform-origin: left; }
 .loader small { font-size: 11px; letter-spacing: 0.2em; color: var(--muted); }
 
+/* Cursor personalizado (solo con mouse). GSAP mueve el contenedor; el escalado vive en el <i> interno. */
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; z-index: 150; pointer-events: none; display: none; }
+.has-cursor .cursor-dot, .has-cursor .cursor-ring { display: block; }
+.has-cursor, .has-cursor a, .has-cursor button { cursor: none; }
+.cursor-dot i { display: block; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px rgba(124, 230, 226, 0.9); transition: transform 0.35s var(--ease), opacity 0.25s; }
+.cursor-ring i {
+  display: block; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%;
+  border: 1px solid rgba(124, 230, 226, 0.5); background: rgba(124, 230, 226, 0);
+  transform: scale(calc(var(--s, 1) * var(--p, 1)));
+  transition: transform 0.5s var(--ease), background 0.4s, border-color 0.4s;
+}
+body[data-cursor='link'] { --s: 1.6; }
+body[data-cursor='link'] .cursor-ring i { background: rgba(255, 255, 255, 0.06); border-color: rgba(244, 247, 252, 0.85); }
+body[data-cursor='link'] .cursor-dot i { transform: scale(0); opacity: 0; }
+body[data-cursor='card'] { --s: 1.5; }
+body[data-cursor='card'] .cursor-ring i { background: rgba(124, 230, 226, 0.05); border-color: rgba(124, 230, 226, 0.28); }
+body.cursor-down { --p: 0.82; }
+
 /* ---------- Nav ---------- */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: translate 0.5s var(--ease), background 0.4s, border-color 0.4s;
