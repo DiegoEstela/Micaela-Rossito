@@ -22,6 +22,24 @@ const sectionHead = (num, label, title, lead = '') => `
 const photo = (src, alt) =>
   `<img class="photo" src="${src}" alt="${esc(alt)}" loading="lazy" onerror="this.remove()" />`;
 
+// Mini-animaciones de cada servicio (las anima el CSS).
+const viz = {
+  radar: `<svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="sw" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7ce6e2" stop-opacity="0"/><stop offset="1" stop-color="#7ce6e2" stop-opacity=".55"/></linearGradient></defs>
+    <circle cx="60" cy="60" r="14" class="ln"/><circle cx="60" cy="60" r="29" class="ln"/><circle cx="60" cy="60" r="44" class="ln"/>
+    <path d="M16 60H104M60 16V104" class="ln faint"/>
+    <g class="sweep"><path d="M60 60L60 16A44 44 0 0 1 104 60Z" fill="url(#sw)"/></g>
+    <circle cx="84" cy="38" r="3" class="blip"/><circle cx="38" cy="78" r="3" class="blip b2"/><circle cx="76" cy="84" r="3" class="blip b3"/></svg>`,
+  network: `<svg viewBox="0 0 120 120" aria-hidden="true">
+    <path d="M22 32L60 20L98 44L88 92L40 94Z M60 20L88 92 M22 32L40 94 M98 44L40 94" class="ln dash"/>
+    <circle cx="22" cy="32" r="5" class="nd"/><circle cx="60" cy="20" r="5" class="nd n2"/><circle cx="98" cy="44" r="5" class="nd n3"/>
+    <circle cx="88" cy="92" r="5" class="nd n4"/><circle cx="40" cy="94" r="5" class="nd n5"/></svg>`,
+  bars: `<svg viewBox="0 0 120 120" aria-hidden="true">
+    <path d="M14 104H106" class="ln"/>
+    <rect x="20" y="64" width="12" height="40" rx="3" class="bar"/><rect x="40" y="48" width="12" height="56" rx="3" class="bar b2"/>
+    <rect x="60" y="56" width="12" height="48" rx="3" class="bar b3"/><rect x="80" y="30" width="12" height="74" rx="3" class="bar b4"/>
+    <path d="M26 56L46 40L66 48L86 22" class="trend"/></svg>`,
+};
+
 const mailto = `mailto:${site.email}?subject=${encodeURIComponent(contact.subject)}`;
 
 const arrow = (d = '↗') => `<span class="arr">${d}</span>`;
@@ -97,20 +115,23 @@ export function render() {
   </div></section>`;
 
   const servicesSec = `
-  <section class="section alt" id="servicios"><div class="wrap split">
+  <section class="section light" id="servicios"><div class="wrap split">
     <div class="split-left">
       ${sectionHead('02', services.label, services.title, services.lead)}
       <div class="note reveal">${esc(services.note)}</div>
     </div>
-    <div class="offer">
+    <div class="stack">
       ${services.items
         .map(
           (s, i) => `
-        <div class="offer-item reveal">
-          <div class="offer-num">0${i + 1}</div>
-          <div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>
-          <span class="offer-arrow">↗</span>
-        </div>`
+        <article class="svc spot reveal-card" style="--i:${i}">
+          <div class="svc-viz">${viz[s.viz] || ''}</div>
+          <span class="svc-ghost">0${i + 1}</span>
+          <div class="num">0${i + 1} / Servicio</div>
+          <h3>${esc(s.title)}</h3>
+          <p>${esc(s.text)}</p>
+          <div class="svc-tags">${(s.tags || []).map((t) => `<span>${esc(t)}</span>`).join('')}</div>
+        </article>`
         )
         .join('')}
     </div>
@@ -160,15 +181,20 @@ export function render() {
         )
         .join('')}
     </div>
-    <div class="logos reveal">
-      <span class="logos-label">${esc(experience.logosLabel)}</span>
+    <div class="logos">
+      <div class="logos-head reveal">
+        <span class="logos-eyebrow"><i></i>${esc(experience.logosEyebrow)}</span>
+        <h3>${esc(experience.logosLabel)}</h3>
+      </div>
       <div class="logos-row">
         ${experience.logos
-          .map((l) => `<span class="logo" data-name="${esc(l.name)}"><img src="${l.src}" alt="${esc(l.name)}" loading="lazy" /></span>`)
+          .map(
+            (l, i) => `
+          <div class="logo spot reveal-card"><small>0${i + 1}</small><span class="logo-mark" data-name="${esc(l.name)}"><img src="${l.src}" alt="${esc(l.name)}" loading="lazy" /></span></div>`
+          )
           .join('')}
       </div>
     </div>
-    <p class="disclaimer">${esc(experience.disclaimer)}</p>
   </div></section>`;
 
   const aboutSec = `
@@ -226,7 +252,7 @@ export function render() {
     ${footerSec}`;
 
   // Logos faltantes: mostrar el nombre en texto en lugar de la imagen rota.
-  document.querySelectorAll('.logo img').forEach((img) => {
+  document.querySelectorAll('.logo-mark img').forEach((img) => {
     const swap = () => {
       const box = img.parentElement;
       box.classList.add('text');

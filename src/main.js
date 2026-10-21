@@ -213,6 +213,18 @@ function sectionAnimations() {
     });
   });
 
+  // Servicios: cada tarjeta se achica y se oscurece cuando la siguiente la tapa.
+  const svc = $$('.svc');
+  svc.slice(0, -1).forEach((card, i) => {
+    gsap.fromTo(card, { scale: 1, filter: 'brightness(1)' }, {
+      scale: 0.94,
+      filter: 'brightness(0.62)',
+      transformOrigin: '50% 0%',
+      ease: 'none',
+      scrollTrigger: { trigger: svc[i + 1], start: 'top 75%', end: 'top 20%', scrub: true },
+    });
+  });
+
   // Metodología: la línea se completa a medida que se scrollea (horizontal en desktop, vertical en mobile).
   const steps = $('#steps');
   const mm = gsap.matchMedia();

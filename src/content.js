@@ -85,14 +85,20 @@ export const services = {
   note: 'La propuesta se adapta al momento y a los recursos del negocio. No necesitás contratar todos los servicios ni resolver todo al mismo tiempo.',
   items: [
     {
+      viz: 'radar',
+      tags: ['Auditoría', 'Conversión', 'Plan a 90 días'],
       title: 'Diagnóstico y hoja de ruta',
       text: 'Auditoría de comunicación y canales, revisión del recorrido de conversión, detección de oportunidades y plan de prioridades para los próximos 90 días.',
     },
     {
+      viz: 'network',
+      tags: ['Estrategia', 'Funnel', 'Automatizaciones', 'KPIs'],
       title: 'Consultoría integral de marketing',
       text: 'Definición de estrategia, mensajes, canales, funnel, captación, seguimiento, automatizaciones e indicadores. Un espacio para tomar decisiones con criterio y dirección.',
     },
     {
+      viz: 'bars',
+      tags: ['Campañas', 'Email marketing', 'Seguimiento'],
       title: 'Implementación y optimización',
       text: 'Como complemento, puedo involucrarme en la puesta en marcha y coordinación de campañas, contenidos, email marketing, automatizaciones y seguimiento de resultados.',
     },
@@ -136,13 +142,13 @@ export const experience = {
     },
   ],
   // Logos opcionales: si no existe el archivo se muestra el nombre en texto.
+  logosEyebrow: 'Trayectoria',
   logosLabel: 'Proyectos y marcas con las que trabajé',
   logos: [
     { name: 'Mastery Haus', src: '/images/logos/mastery-haus.svg' },
     { name: 'Sofía Contreras', src: '/images/logos/sofia-contreras.svg' },
     { name: 'Gobierno de la Ciudad de Buenos Aires', src: '/images/logos/gcba.svg' },
   ],
-  disclaimer: 'Los ejemplos describen áreas de trabajo y responsabilidades; no se atribuyen resultados comerciales no documentados.',
 };
 
 export const about = {
