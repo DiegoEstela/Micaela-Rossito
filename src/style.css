@@ -244,18 +244,18 @@ h2 { font-size: clamp(32px, 4.4vw, 56px); line-height: 1.08; margin: 18px 0 22px
 .proof-card strong { display: block; font: 800 clamp(34px, 4vw, 48px)/1.1 var(--display); letter-spacing: -0.05em; margin-bottom: 14px; background: linear-gradient(100deg, #f5f8ff, #8fb9ff 60%, #80e2df); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .proof-card strong.textual { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.02em; font-size: clamp(32px, 3.6vw, 42px); }
 .proof-card p { font-size: 14px; color: var(--muted); margin: 0; }
-.logos { margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); }
-.logos-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); }
-.logos-eyebrow i { width: 52px; height: 1px; background: var(--cyan); opacity: 0.7; }
-.logos-head h3 { font-size: clamp(30px, 4vw, 52px); line-height: 1.08; margin: 16px 0 0; max-width: 760px; }
-.logos-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 40px; }
-.logo { position: relative; overflow: hidden; min-height: 180px; padding: 26px 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--panel); display: flex; flex-direction: column; justify-content: space-between; gap: 28px; transition: border-color 0.4s, transform 0.5s var(--ease); }
-.logo::after { content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: linear-gradient(90deg, var(--blue), var(--cyan)); transform: scaleX(0); transform-origin: left; transition: transform 0.7s var(--ease); }
-.logo:hover { border-color: rgba(124, 230, 226, 0.45); transform: translateY(-4px); }
+.logos { margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(220px, 0.9fr) 1.6fr; gap: 48px; align-items: start; }
+.logos-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); }
+.logos-eyebrow i { width: 28px; height: 1px; background: var(--cyan); opacity: 0.7; }
+.logos-head h3 { font-size: clamp(20px, 2vw, 26px); line-height: 1.2; margin: 12px 0 0; letter-spacing: -0.03em; }
+.logos-row { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.logo { position: relative; display: grid; grid-template-columns: 44px 1fr; align-items: center; gap: 12px; padding: 20px 4px; border-bottom: 1px solid var(--line); transition: padding 0.5s var(--ease); }
+.logo::after { content: ''; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: linear-gradient(90deg, var(--blue), var(--cyan)); transform: scaleX(0); transform-origin: left; transition: transform 0.7s var(--ease); }
+.logo:hover { padding-left: 14px; }
 .logo:hover::after { transform: scaleX(1); }
-.logo small { font: 700 12px var(--display); letter-spacing: 0.12em; color: var(--cyan); position: relative; }
-.logo-mark { position: relative; font: 800 clamp(24px, 2.6vw, 32px)/1.12 var(--display); letter-spacing: -0.04em; color: var(--text); }
-.logo-mark img { height: 44px; width: auto; max-width: 100%; object-fit: contain; }
+.logo small { font: 700 11px var(--display); letter-spacing: 0.1em; color: var(--cyan); }
+.logo-mark { font: 700 clamp(17px, 1.7vw, 21px)/1.25 var(--display); letter-spacing: -0.03em; color: var(--text); }
+.logo-mark img { height: 30px; width: auto; max-width: 100%; object-fit: contain; }
 
 /* Sobre mí */
 .about { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 80px; align-items: start; }
@@ -293,6 +293,7 @@ h2 { font-size: clamp(32px, 4.4vw, 56px); line-height: 1.08; margin: 18px 0 22px
   .svc-ghost { font-size: 130px; bottom: -22px; }
   .visual { min-height: 340px; }
   .grid3, .proof { grid-template-columns: 1fr; }
+  .logos { grid-template-columns: 1fr; gap: 24px; margin-top: 56px; }
   .steps { grid-template-columns: 1fr; margin-top: 50px; padding-left: 26px; gap: 12px; }
   .steps-line { top: 0; bottom: 0; left: 0; right: auto; width: 2px; height: auto; }
   .steps-line i { transform-origin: top; transform: scaleY(0); }

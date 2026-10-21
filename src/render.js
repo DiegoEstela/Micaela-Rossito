@@ -186,14 +186,14 @@ export function render() {
         <span class="logos-eyebrow"><i></i>${esc(experience.logosEyebrow)}</span>
         <h3>${esc(experience.logosLabel)}</h3>
       </div>
-      <div class="logos-row">
+      <ul class="logos-row reveal">
         ${experience.logos
           .map(
             (l, i) => `
-          <div class="logo spot reveal-card"><small>0${i + 1}</small><span class="logo-mark" data-name="${esc(l.name)}"><img src="${l.src}" alt="${esc(l.name)}" loading="lazy" /></span></div>`
+          <li class="logo"><small>0${i + 1}</small><span class="logo-mark" data-name="${esc(l.name)}"><img src="${l.src}" alt="${esc(l.name)}" loading="lazy" /></span></li>`
           )
           .join('')}
-      </div>
+      </ul>
     </div>
   </div></section>`;
 
