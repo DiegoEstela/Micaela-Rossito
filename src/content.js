@@ -14,9 +14,9 @@ export const site = {
   description:
     'Consultoría integral de marketing de Micaela Rossito. Estrategia, comunicación, adquisición y conversión en un mismo sistema.',
 
-  // TODO: reemplazar por el email profesional y sumar redes (dejá '' para ocultar).
-  email: 'hola@micaelarossito.com',
-  linkedin: '',
+  // Redes (dejá '' para ocultar).
+  email: 'micarossito@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/micaelarossito/',
   instagram: '',
 
   nav: [
@@ -120,27 +120,7 @@ export const method = {
 export const experience = {
   label: 'Experiencia aplicada',
   title: 'Comunicación, contenido y sistemas de marketing.',
-  lead: 'Mi recorrido combina estrategia de contenidos, producción audiovisual, campañas integradas, generación de demanda y automatización. Estos son algunos ejes de experiencia que puedo aportar a un proyecto.',
-  // Con `value` el número se anima al entrar; con `text` se muestra tal cual.
-  proof: [
-    { prefix: '+', value: 7, suffix: ' años', text: '', label: 'de experiencia profesional en comunicación, contenidos, proyectos y marketing digital.' },
-    { prefix: '+', value: 500, suffix: ' asistentes', text: '', label: 'en webinars y eventos online en los que participé desde la planificación y producción.' },
-    { text: 'De contenido a conversión', label: 'Experiencia conectando YouTube y podcast, campañas, email marketing y automatizaciones en GoHighLevel.' },
-  ],
-  cases: [
-    {
-      title: 'Contenido y estrategia digital',
-      text: 'En Mastery Haus, trabajo en estrategia y producción de contenido para YouTube, podcast y plataformas digitales, con atención a métricas como CTR, retención y alcance.',
-    },
-    {
-      title: 'Eventos y experiencias online',
-      text: 'Planificación y producción de webinars y eventos digitales, articulando contenidos, equipos y herramientas para sostener la experiencia de la audiencia.',
-    },
-    {
-      title: 'Automatización y seguimiento',
-      text: 'Implementación de automatizaciones de email marketing en GoHighLevel e integración de herramientas para acompañar el recorrido de los contactos.',
-    },
-  ],
+  lead: 'Mi recorrido combina estrategia de contenidos, producción audiovisual, campañas integradas, generación de demanda y automatización, con la mirada puesta en que cada pieza funcione como parte de un mismo sistema.',
   // Logos opcionales: si no existe el archivo se muestra el nombre en texto.
   logosEyebrow: 'Trayectoria',
   logosLabel: 'Proyectos y marcas con las que trabajé',
@@ -158,9 +138,10 @@ export const about = {
   photo: '/images/micaela.jpg',
   photoCaption: 'Marketing · Comunicación · Estrategia',
   paragraphs: [
-    'Soy Licenciada en Relaciones Públicas e Institucionales y trabajo en estrategia de contenidos, generación de demanda, producción audiovisual y coordinación de proyectos. A lo largo de mi recorrido participé en proyectos de comunicación institucional, campañas, contenidos digitales, eventos y ecosistemas de marketing.',
-    'Actualmente trabajo con Sofía Contreras / Mastery Haus, donde desarrollo y coordino contenido para YouTube y podcast, participo en campañas integradas y trabajo con métricas, email marketing y automatizaciones. También formé parte de proyectos de comunicación para el Gobierno de la Ciudad de Buenos Aires y de estrategias de contenido para proyectos culturales.',
-    'Me interesa mirar el negocio de forma completa: entender el objetivo, encontrar el mensaje, ordenar los canales y ayudar a que la estrategia se convierta en acciones concretas.',
+    'Soy profesional de Relaciones Públicas, con más de 7 años de experiencia en comunicación estratégica, marketing digital y desarrollo de proyectos. Mi trayectoria se centra en la planificación de estrategias de comunicación, el desarrollo de campañas integradas y la articulación de canales y herramientas para conectar los objetivos de cada negocio con acciones concretas.',
+    'Gran parte de mi experiencia se desarrolló junto a Sofía Contreras, en el marco de su consultoría y de Mastery Haus, participando en proyectos vinculados al marketing digital, la construcción de marcas personales y el desarrollo de estrategias de comunicación para negocios digitales. Este recorrido me permitió trabajar de manera integral en la planificación de campañas, la coordinación de proyectos, la generación de demanda, el análisis de métricas y la implementación de herramientas de email marketing y automatización.',
+    'También trabajé en el Gobierno de la Ciudad de Buenos Aires, donde participé en proyectos de comunicación institucional y en la campaña presidencial de Horacio Rodríguez Larreta. Esta experiencia me permitió formar parte de iniciativas de comunicación de gran alcance, en entornos que requieren planificación, coordinación y coherencia estratégica.',
+    'Mi enfoque parte de comprender cada negocio de manera integral: identificar objetivos y oportunidades, definir una propuesta de valor, construir mensajes relevantes y conectar los distintos canales de comunicación y marketing. Busco desarrollar estrategias que no funcionen como acciones aisladas, sino como un sistema alineado con el posicionamiento y los objetivos comerciales de cada proyecto.',
   ],
   chips: ['Meta Ads', 'GoHighLevel', 'ManyChat', 'Email marketing', 'Producción audiovisual', 'IA generativa', 'Gestión de proyectos'],
 };

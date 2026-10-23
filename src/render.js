@@ -156,31 +156,9 @@ export function render() {
     </div>
   </div></section>`;
 
-  const proofSec = experience.proof
-    .map((p) => {
-      const big = p.value
-        ? `<strong>${esc(p.prefix || '')}<span data-count="${p.value}">0</span>${esc(p.suffix || '')}</strong>`
-        : `<strong class="textual">${esc(p.text)}</strong>`;
-      return `<article class="proof-card spot reveal-card">${big}<p>${esc(p.label)}</p></article>`;
-    })
-    .join('');
-
   const experienceSec = `
   <section class="section alt" id="experiencia"><div class="wrap">
     ${sectionHead('04', experience.label, experience.title, experience.lead)}
-    <div class="proof">${proofSec}</div>
-    <div class="grid3">
-      ${experience.cases
-        .map(
-          (c, i) => `
-        <article class="card spot reveal-card" data-tilt>
-          <div class="num">Caso / 0${i + 1}</div>
-          <h3>${esc(c.title)}</h3>
-          <p>${esc(c.text)}</p>
-        </article>`
-        )
-        .join('')}
-    </div>
     <div class="logos">
       <div class="logos-head reveal">
         <span class="logos-eyebrow"><i></i>${esc(experience.logosEyebrow)}</span>
