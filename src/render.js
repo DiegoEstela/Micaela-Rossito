@@ -191,9 +191,15 @@ export function render() {
     </div>
   </div></section>`;
 
+  const icons = {
+    mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.6 2L12 12.4 19.4 7zM4 8.6V17h16V8.6l-8 5.8z"/></svg>',
+    linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.82-2.06 3.75-2.06 4.01 0 4.75 2.64 4.75 6.07v5.9h-4v-5.23c0-1.25-.02-2.85-1.74-2.85-1.74 0-2 1.36-2 2.76v5.32h-4z"/></svg>',
+  };
+
   const social = [
-    site.linkedin && `<a href="${esc(site.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`,
-    site.instagram && `<a href="${esc(site.instagram)}" target="_blank" rel="noopener">Instagram</a>`,
+    `<a class="icon-btn" href="${mailto}" aria-label="Enviar un email" title="Email">${icons.mail}</a>`,
+    site.linkedin && `<a class="icon-btn" href="${esc(site.linkedin)}" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">${icons.linkedin}</a>`,
+    site.instagram && `<a class="icon-btn" href="${esc(site.instagram)}" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">Ig</a>`,
   ]
     .filter(Boolean)
     .join('');
@@ -208,8 +214,8 @@ export function render() {
         <p class="reveal">${esc(contact.text)}</p>
       </div>
       <div class="contact-actions reveal">
-        <a class="btn primary big" href="${mailto}" data-magnetic>${esc(contact.cta)} ${arrow()}</a>
-        ${social ? `<div class="social">${social}</div>` : ''}
+        <span class="connect-title">${esc(contact.connect)}</span>
+        <div class="connect-icons">${social}</div>
       </div>
     </div>
   </section>`;
@@ -217,7 +223,7 @@ export function render() {
   const footerSec = `
   <footer class="footer"><div class="wrap footer-inner">
     <span>© ${new Date().getFullYear()} ${esc(site.name)} · ${esc(footer.left)}</span>
-    <span>${esc(footer.right)}</span>
+    <span>${esc(footer.credit.text)} <a class="credit" href="${esc(footer.credit.href)}" target="_blank" rel="noopener">${esc(footer.credit.name)}</a></span>
   </div></footer>`;
 
   document.getElementById('app').innerHTML = `

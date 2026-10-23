@@ -150,11 +150,11 @@ export const contact = {
   label: 'Próximo paso',
   title: '¿Qué necesita tu marketing hoy?',
   text: 'Contame en qué etapa está tu negocio, qué querés lograr y qué sentís que hoy no está conectado. Podemos empezar por ordenar el panorama y definir prioridades.',
-  cta: 'Conversemos por email',
+  connect: 'Conectá conmigo',
   subject: 'Consulta por consultoría de marketing',
 };
 
 export const footer = {
   left: 'Consultoría integral de marketing',
-  right: 'Estrategia con dirección. Acciones con propósito.',
+  credit: { text: 'Sitio creado por', name: 'Delo IA Studio', href: 'https://diego-estela-lopez.vercel.app/' },
 };
